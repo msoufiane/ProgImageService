@@ -11,6 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProgImageService.settings')
+ENVIRONMENT = os.getenv('DJANGO_ENVIRONMENT', 'dev')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProgImageService.settings.{0}'.format(ENVIRONMENT))
 
 application = get_wsgi_application()
