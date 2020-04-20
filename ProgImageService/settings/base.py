@@ -1,7 +1,7 @@
 """
 Django base settings for ProgImageService project.
 """
-
+from .rest_framework.settings import REST_FRAMEWORK
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -21,11 +21,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 'django.contrib.admin',
-    # 'django.contrib.auth',
-    # 'django.contrib.contenttypes',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
     # 'django.contrib.sessions',
     # 'django.contrib.messages',
     # 'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -106,4 +107,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-# STATIC_URL = '/static/'
+STATIC_URL = '/static/'
