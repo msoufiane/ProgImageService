@@ -10,7 +10,7 @@ env:
 install:
 - pip install -r requirements.txt
 before_script:
-- python -m manage.py migrate
+- python manage.py migrate
 script:
 - coverage run manage.py test
 after_script:
