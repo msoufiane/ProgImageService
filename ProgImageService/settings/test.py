@@ -1,15 +1,8 @@
 """
-Django settings for test environment for ProgImageService project.
+ProgImageService settings for testing environment, override any defaults here.
 """
 
-from .base import *
+from ProgImageService.settings.base import *
 
 ALLOWED_HOSTS = ['localhost']
 DEBUG = True
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}

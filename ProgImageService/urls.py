@@ -1,10 +1,7 @@
 """ProgImageService URL Configuration"""
 
-from django.urls import include, path
-from rest_framework import routers
-
-router = routers.DefaultRouter()
+from django.conf.urls import include, url
 
 urlpatterns = [
-    path('', include(router.urls)),
+    url(r'', include('repository.urls')),
 ]

@@ -1,6 +1,10 @@
 [run]
 branch = True
-omit = 
+omit =
+    */migrations/*
+    */apps.py
+    */__init__.py
+    */tests/*
     env/* 
     ProgImageService/*
     manage.py
