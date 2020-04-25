@@ -1,5 +1,5 @@
 """
-Django settings for test environment for ProgImageService project.
+ProgImageService settings for testing environment, override any defaults here.
 """
 
 from ProgImageService.settings.base import *

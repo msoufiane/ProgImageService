@@ -9,7 +9,7 @@ from unittest import mock
 import os
 
 class SignalsTest(TestCase):
-    """Sigmalss test case"""
+    """Signals test case"""
 
     @mock.patch('repository.signals.delete_imageFile')
     def test_post_delete_signal(self, mock):

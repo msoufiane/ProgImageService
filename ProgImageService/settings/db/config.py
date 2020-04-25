@@ -1,4 +1,7 @@
-# from ProgImageService.settings.base import BASE_DIR
+"""
+Config file for the default database to be used, override this in environment config file if needed
+"""
+
 import os
 
 

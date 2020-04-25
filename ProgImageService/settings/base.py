@@ -1,5 +1,5 @@
 """
-Django base settings for ProgImageService project.
+ProgImageService base settings to be extended and/or overriden in a local config file.
 """
 from ProgImageService.settings.rest_framework.config import REST_FRAMEWORK
 from ProgImageService.settings.apps.config import INSTALLED_APPS

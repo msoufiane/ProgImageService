@@ -1,5 +1,5 @@
 """
-Django settings for development environment for ProgImageService project.
+ProgImageService settings for local environment, override any defaults here.
 """
 
 from ProgImageService.settings.base import *

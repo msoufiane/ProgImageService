@@ -132,3 +132,4 @@ dmypy.json
 .vscode/
 
 ProgImageService/media/
+ProgImageService/settings/local.py

@@ -1,3 +1,7 @@
+"""
+The Image repository interface
+"""
+
 from abc import ABCMeta, abstractmethod
 from django.core.files import File
 

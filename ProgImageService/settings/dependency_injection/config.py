@@ -1,3 +1,8 @@
+"""
+Config file binding interfaces implementation to their usecases
+change here if you need to use another implementation of the intended interfaces
+"""
+
 from repository.types.image_repository import ImageRepo
 from repository.adapters.orm_adapter import ORMAdapter
 

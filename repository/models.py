@@ -1,3 +1,7 @@
+"""
+Image django model
+"""
+
 from django.db import models
 
 class Image(models.Model):

@@ -1,5 +1,5 @@
 from django.test import TestCase
-from repository.utils.delete_file import delete_file
+from repository.utils import delete_file
 from ProgImageService.settings.base import BASE_DIR, MEDIA_ROOT
 
 from shutil import copy2
