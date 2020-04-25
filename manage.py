@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    ENVIRONMENT = os.getenv('DJANGO_ENVIRONMENT', 'dev')
+    ENVIRONMENT = os.getenv('DJANGO_ENVIRONMENT', 'local')
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProgImageService.settings.{0}'.format(ENVIRONMENT))
     try:
         from django.core.management import execute_from_command_line
