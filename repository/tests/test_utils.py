@@ -21,3 +21,5 @@ class UtilsTest(TestCase):
     def test_exception_when_invalid_file(self):
         """Should raise an exception when giving an invalid file path"""
         self.assertRaises(TypeError, delete_file, path=None)
+
+    
