@@ -1,12 +1,13 @@
 from repository.models import Image
 from repository.signals import delete_imageFile
 from ProgImageService.settings.base import BASE_DIR
-from django.db.models.signals import post_delete, ModelSignal
+from django.db.models.signals import post_delete
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 
 from unittest import mock
 import os
+
 
 class SignalsTest(TestCase):
     """Signals test case"""
@@ -37,7 +38,7 @@ class SignalsTest(TestCase):
 
     def test_exception_if_file_not_found(self):
         """Tests the signal method actually delete the file"""
-        with open(os.path.join(BASE_DIR, '..' , 'fixtures/images/image1.jpeg'), 'rb') as testFile:
+        with open(os.path.join(BASE_DIR, '..', 'fixtures/images/image1.jpeg'), 'rb') as testFile:
             imageFile = SimpleUploadedFile(name=testFile.name, content=testFile.read())
         image = Image(file=imageFile)
         image.save()

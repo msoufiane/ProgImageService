@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
+
 class RepositoryConfig(AppConfig):
     name = 'repository'
 
@@ -9,4 +10,3 @@ class RepositoryConfig(AppConfig):
         import inject
 
         inject.configure(di_configuration)
-

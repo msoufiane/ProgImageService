@@ -14,18 +14,19 @@ import os
 
 logger = logging.getLogger(__name__)
 
+
 class PILAdapter(ImageConverter):
-    def convertImage(self, imageFile:File=None, ext:str=''):
+    def convertImage(self, imageFile: File = None, ext: str = ''):
         """saves the uploaded file to the disk and keeps the record of it in the DB"""
         if (not imageFile) or (not ext):
             return None
-        
+
         try:
             originalImage = Image.open(imageFile.path)
             converted_file_io = BytesIO()
             originalImage.save(converted_file_io, format=ext)
-            
-            converted_file =  InMemoryUploadedFile(
+
+            converted_file = InMemoryUploadedFile(
                 converted_file_io,
                 None,
                 '{}.{}'.format(os.path.splitext(imageFile.name)[0], ext),
