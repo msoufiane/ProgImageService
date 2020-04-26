@@ -3,7 +3,7 @@ Various helper functions
 """
 
 from django.core.files.base import File
-from repository.settings import SUPPORTED_IMAGES
+from repository.settings import SUPPORTED_IMAGES, SUPPORTED_EXTENTIONS
 
 import logging
 import magic
@@ -17,7 +17,14 @@ def image_is_valide(image:File=None):
         return False
     return True
 
-def get_content_type(filePath:str):
+def format_is_valid(ext:str=''):
+    """check the image extention agains the SUPPORTED_EXTENTIONS config"""
+    if not ext.lower() in SUPPORTED_EXTENTIONS:
+        return False
+    return True
+
+
+def get_content_type_by_file(filePath:str=''):
     """return the MIME Type from a file given it's path"""
     mime = magic.Magic(mime=True)
     try:
@@ -26,6 +33,12 @@ def get_content_type(filePath:str):
     except Exception as e:
         logger.error(e) 
         raise e
+
+def get_content_type_by_ext(ext:str=''):
+    """return the MIME Type of an extention"""
+    supported_files_dict = dict(zip(SUPPORTED_EXTENTIONS, SUPPORTED_IMAGES))
+    return supported_files_dict[ext]
+
 
 def delete_file(filePath=None):
    """ Deletes a file from the filesystem given it's path"""
