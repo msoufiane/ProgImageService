@@ -28,7 +28,9 @@ ProgImageService provides an API to store, retrieve and convert images.
 make sure the required services are running (edit the [local configuration file](https://github.com/msoufiane/ProgImageService/blob/master/ProgImageService/settings/local.py) if necessary)
 * Using docker
 
-`docker-compose up`
+build: `docker-compose build`
+run: `docker-compose up -d`
+check logs: `docker-compose logs -f`
 
 ## Notes:
 ### Supported files:

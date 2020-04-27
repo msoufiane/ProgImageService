@@ -16,7 +16,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'DEFINE_A_SECURE_KEY')
 ROOT_URLCONF = 'ProgImageService.urls'
 WSGI_APPLICATION = 'ProgImageService.wsgi.application'
 STATIC_URL = '/static/'
-MEDIA_URL =  '/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 ALLOWED_HOSTS = [

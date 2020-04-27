@@ -4,5 +4,6 @@ djangorestframework==3.11.0
 Inject==4.1.2
 python-coveralls==2.9.3
 python-magic==0.4.15
-python-magic-bin==0.4.14
+psycopg2-binary==2.8.5
+gunicorn==19.9.0
 pillow==7.1.1

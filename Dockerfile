@@ -6,16 +6,33 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apk update
+RUN apk update && apk add postgresql-dev \
+                       python3-dev \
+                       \musl-dev \
+                       libmagic \
+                       build-base \
+                       openssl \
+                       # Pillow dependencies
+                       jpeg-dev \
+                       zlib-dev \
+                       freetype-dev \
+                       lcms2-dev \
+                       openjpeg-dev \
+                       tiff-dev \
+                       tk-dev \
+                       tcl-dev \
+                       harfbuzz-dev \
+                       fribidi-dev
 
 # copy project
 COPY . /usr/src/app/
 
 # install dependencies
-RUN pip install --upgrade pip
+RUN python -m pip install -U --force-reinstall pip
+# RUN pip install --upgrade pip
 RUN pip install flake8
 COPY . /usr/src/app/
-RUN flake8 --ignore=E501,F401 .
+RUN flake8 .
 
 COPY ./requirements.txt .
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requirements.txt
@@ -38,11 +55,26 @@ ENV APP_HOME=/home/app/web
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-RUN apk update 
+RUN apk update && apk add postgresql-dev \
+                       python3-dev \
+                       \musl-dev \
+                       libmagic \
+                       build-base \
+                       openssl \
+                       # Pillow dependencies
+                       jpeg-dev \
+                       zlib-dev \
+                       freetype-dev \
+                       lcms2-dev \
+                       openjpeg-dev \
+                       tiff-dev \
+                       tk-dev \
+                       tcl-dev \
+                       harfbuzz-dev \
+                       fribidi-dev
+
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
-RUN pip install --upgrade pip
-RUN pip install --no-cache /wheels/*
 
 # copy entrypoint.sh
 COPY ./entrypoint.sh $APP_HOME
@@ -51,10 +83,16 @@ COPY ./entrypoint.sh $APP_HOME
 COPY . $APP_HOME
 
 # chown all the files to the app user
+RUN chmod 755 $APP_HOME/entrypoint.sh
 RUN chown -R app:app $APP_HOME
 
 # change to the app user
 USER app
 
+RUN pip install --upgrade pip
+RUN pip install --no-warn-script-location --no-cache /wheels/*
+
+EXPOSE 8000
+
 # run entrypoint.sh
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+ENTRYPOINT ["/home/app/web/entrypoint.sh"]
