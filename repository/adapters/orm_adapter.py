@@ -12,11 +12,12 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class ORMAdapter(ImageRepo):
     def __init__(self):
         self.image_repo = Image
 
-    def saveImage(self, imageFile:File=None):
+    def saveImage(self, imageFile: File = None):
         """
         saves the uploaded file to the disk and keeps the record of it in the DB
         """
@@ -38,4 +39,4 @@ class ORMAdapter(ImageRepo):
             return image_record
         except Image.DoesNotExist:
             logger.warn('No image record is found in the DB using id={}'.format(id))
-            return None 
+            return None

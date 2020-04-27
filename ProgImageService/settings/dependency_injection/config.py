@@ -12,6 +12,7 @@ from repository.adapters.pil_adapter import PILAdapter
 
 import inject
 
-def di_configuration(binder): 
+
+def di_configuration(binder):
     binder.bind(ImageConverter, PILAdapter())
     binder.bind(ImageRepo, ORMAdapter())

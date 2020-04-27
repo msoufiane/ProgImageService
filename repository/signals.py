@@ -12,6 +12,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 @receiver(post_delete, sender=Image)
 def delete_imageFile(sender, instance, *args, **kwargs):
     """ Deletes image files on `post_delete` signal"""

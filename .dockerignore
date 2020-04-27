@@ -1,0 +1,6 @@
+fixtures/
+.dockerignore
+.gitignore
+.travis.yml
+Dockerfile
+README.mds

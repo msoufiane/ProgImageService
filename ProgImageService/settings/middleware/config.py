@@ -1,5 +1,5 @@
 """
-List of middlewares to be used by the application 
+List of middlewares to be used by the application
 """
 
 MIDDLEWARE = [
