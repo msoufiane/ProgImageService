@@ -15,8 +15,8 @@ before_script:
 - python manage.py migrate
 script:
 - coverage run manage.py test
-- docker build -t progimage:latest .
+- docker build -t fousiaane/progimage:latest .
 after_script:
 - coveralls
 - echo $DOCKER_HUB_PWD | docker login --username fousiaane --password-stdin
-- docker push progimage:latest
+- docker push fousiaane/progimage:latest
