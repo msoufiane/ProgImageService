@@ -1,6 +1,6 @@
 coverage==4.5.4
 Django==3.0.5
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 Inject==4.1.2
 python-coveralls==2.9.3
 python-magic==0.4.15
