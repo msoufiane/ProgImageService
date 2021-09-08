@@ -6,4 +6,4 @@ python-coveralls==2.9.3
 python-magic==0.4.15
 psycopg2-binary==2.8.5
 gunicorn==19.9.0
-pillow==7.1.1
+pillow==8.3.2
